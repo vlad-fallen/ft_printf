@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
+#include <limits.h>
 
 // void ft_putchar(const char c)
 // {
@@ -67,9 +68,11 @@
 // 	return (len);
 // }
 
-int ft_printf(char *format, ...);
+//int ft_printf(char *format, ...);
 
 int main ()
 {
-	ft_printf("hello %s, %X", "world", 10);
+	int a = 1;
+	//ft_printf("hello %s, %X, %%\n", "world", 10);
+	printf("%x", &a);
 }

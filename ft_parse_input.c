@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 15:28:31 by mbutter           #+#    #+#             */
-/*   Updated: 2021/10/26 13:53:30 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/08 14:17:02 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ void ft_parse_flags(char *format, size_t *flags)
 		*flags = 4;
 	else if (*format == 'i')
 		*flags = 5;
-/*	else if (*format == 'u')
-		flags->type = 6;*/
+	else if (*format == 'u')
+		*flags = 6;
 	else if (*format == 'x')
 		*flags = 7;
 	else if (*format == 'X')
 		*flags = 8;
-/*	else if (*format == '%')
-		flags->type = 9;*/
+	else if (*format == '%')
+		*flags = 9;
 }
 
 int ft_parse_input(char *format, va_list ap)

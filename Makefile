@@ -6,7 +6,7 @@
 #    By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/26 11:08:16 by mbutter           #+#    #+#              #
-#    Updated: 2021/10/26 13:51:15 by mbutter          ###   ########.fr        #
+#    Updated: 2021/11/08 14:27:08 by mbutter          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,13 @@ SRCS		=	ft_printf.c \
 				ft_putstr.c \
 				ft_strlen.c \
 				ft_itoa.c \
+				ft_itoa_uint.c \
 				proc_char.c \
 				proc_string.c \
 				proc_int.c \
-				proc_hex.c
+				proc_hex.c \
+				proc_uint.c \
+				proc_percent.c				
 
 OBJS		=	$(SRCS:.c=.o)
 
@@ -34,14 +37,14 @@ CC			=	gcc
 
 RM			=	rm -f
 
-CFLAGS		=	-Wall -Wextra -Werror -I ./
+CFLAGS		=	-Wall -Wextra -Werror -O2 -I ./
 
-# D_FILES		=	$(patsubst %.c,%.d,$(SRCS)) #
+D_FILES		=	$(patsubst %.c,%.d,$(SRCS)) 
 
 .c.o:
-			$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+			$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -MD
 
-#include $(wildcard $(D_FILES))#
+include $(wildcard $(D_FILES))
 
 $(NAME):	$(OBJS)
 			ar rc $(NAME) $(OBJS)
@@ -50,7 +53,7 @@ $(NAME):	$(OBJS)
 all:		$(NAME)
 
 clean:
-			$(RM) $(OBJS) $(BONUS_OBJS)
+			$(RM) $(OBJS) $(BONUS_OBJS) $(D_FILES)
 
 fclean:		clean
 			$(RM) $(NAME)
