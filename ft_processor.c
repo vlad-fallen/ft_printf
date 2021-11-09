@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 17:39:36 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/08 14:13:32 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/09 15:04:31 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int ft_processor(size_t *flags, va_list ap)
 		length = proc_char((char)va_arg(ap, int));
 	else if (*flags == 2)
 		length = proc_string(va_arg(ap, char *));
-/*	else if (flags->type == 3)
-		length = proc_pointer(va_arg(ap, char));*/
+	else if (*flags == 3)
+		length = proc_pointer(va_arg(ap, unsigned long long));
 	else if (*flags == 4 || *flags == 5)
 		length = proc_int(va_arg(ap, int));
 	else if (*flags == 6)

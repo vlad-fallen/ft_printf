@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 15:28:31 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/08 14:17:02 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/09 15:43:53 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ void init_flags(size_t *flags)
 	*flags = 0;
 }
 
-void ft_parse_flags(char *format, size_t *flags)
+void ft_parse_flags(const char *format, size_t *flags)
 {
 	if (*format == 'c')
 		*flags = 1;
 	else if (*format == 's')
 		*flags = 2;
-/*	else if (*format == 'p')
-		flags->type = 3;*/
+	else if (*format == 'p')
+		*flags = 3;
 	else if (*format == 'd')
 		*flags = 4;
 	else if (*format == 'i')
@@ -39,7 +39,7 @@ void ft_parse_flags(char *format, size_t *flags)
 		*flags = 9;
 }
 
-int ft_parse_input(char *format, va_list ap)
+int ft_parse_input(const char *format, va_list ap)
 {
 	size_t flags;
 	int length;

@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   proc_pointer.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/22 15:12:28 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/09 15:41:39 by mbutter          ###   ########.fr       */
+/*   Created: 2021/11/09 13:34:54 by mbutter           #+#    #+#             */
+/*   Updated: 2021/11/09 15:46:09 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_printf(const char *format, ...)
+int proc_pointer(unsigned long ptr)
 {
-	int len;
-	va_list ap;
-	va_start(ap, format);
-	len = ft_parse_input(format, ap);
-	va_end(ap);
-	return (len);
+	char *str;
+	int l;
+
+	str = NULL;
+	if (ptr == 0)
+		*str = '0';
+	else
+	{
+		str = ft_tohex((unsigned long long)ptr);
+		str = ft_strtolower(str);
+	}
+	ft_putstr("0x");
+	l = 2;
+	ft_putstr(str);
+	l += ft_strlen(str);
+	free(str);
+	return (l);
 }

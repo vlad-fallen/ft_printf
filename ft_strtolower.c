@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strtolower.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbutter <mbutter@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/05 13:00:45 by mbutter           #+#    #+#             */
-/*   Updated: 2021/10/06 15:11:09 by mbutter          ###   ########.fr       */
+/*   Created: 2021/11/09 14:06:29 by mbutter           #+#    #+#             */
+/*   Updated: 2021/11/09 15:10:43 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_isdigit(int c)
+char *ft_strtolower(char *str)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	size_t i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] >= 'A' && str[i] <= 'Z')
+		str[i] = str[i] - 'A' + 'a';
+		i++;
+	}
+	return (str);
 }
