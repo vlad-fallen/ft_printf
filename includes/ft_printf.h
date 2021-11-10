@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 13:42:21 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/09 15:42:59 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/10 17:20:29 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,16 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
+
+typedef struct s_flags
+{
+	int type;
+	int width;
+	int minus;
+	int zero;
+	int precision;
+	int star;
+}	t_flags;
 
 int		ft_printf(const char *format, ...);
 void	ft_putchar(const char c);

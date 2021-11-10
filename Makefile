@@ -6,29 +6,29 @@
 #    By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/26 11:08:16 by mbutter           #+#    #+#              #
-#    Updated: 2021/11/09 15:13:14 by mbutter          ###   ########.fr        #
+#    Updated: 2021/11/10 16:24:07 by mbutter          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	libftprintf.a
 
 SRCS		=	ft_printf.c \
-				ft_parse_input.c \
-				ft_processor.c \
-				ft_putchar.c \
-				ft_putstr.c \
-				ft_strlen.c \
-				ft_strtolower.c \
-				ft_itoa.c \
-				ft_itoa_uint.c \
-				ft_tohex.c \
-				proc_char.c \
-				proc_string.c \
-				proc_int.c \
-				proc_hex.c \
-				proc_uint.c \
-				proc_percent.c \
-				proc_pointer.c			
+				parser/ft_parse_input.c \
+				processor/ft_processor.c \
+				libft/ft_putchar.c \
+				libft/ft_putstr.c \
+				libft/ft_strlen.c \
+				libft/ft_strtolower.c \
+				libft/ft_itoa.c \
+				libft/ft_itoa_uint.c \
+				libft/ft_tohex.c \
+				processor/proc_char.c \
+				processor/proc_string.c \
+				processor/proc_int.c \
+				processor/proc_hex.c \
+				processor/proc_uint.c \
+				processor/proc_percent.c \
+				processor/proc_pointer.c			
 
 OBJS		=	$(SRCS:.c=.o)
 
@@ -40,7 +40,7 @@ CC			=	gcc
 
 RM			=	rm -f
 
-CFLAGS		=	-Wall -Wextra -Werror -O2 -I ./
+CFLAGS		=	-Wall -Wextra -Werror -O2 -I ./includes
 
 D_FILES		=	$(patsubst %.c,%.d,$(SRCS)) 
 
