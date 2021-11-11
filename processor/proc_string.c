@@ -6,13 +6,13 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 15:28:21 by mbutter           #+#    #+#             */
-/*   Updated: 2021/10/25 16:19:03 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/11 15:54:07 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int proc_string(char *str)
+int proc_string(char *str, t_flags *flags)
 {
 	int l;
 
