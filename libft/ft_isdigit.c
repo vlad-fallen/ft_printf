@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   proc_string.c                                      :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/25 15:28:21 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/13 15:22:02 by mbutter          ###   ########.fr       */
+/*   Created: 2021/11/13 15:17:49 by mbutter           #+#    #+#             */
+/*   Updated: 2021/11/13 15:18:01 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int proc_string(char *str)
+int	ft_isdigit(int c)
 {
-	int l;
-
-	if (str == NULL)
-	{
-		ft_putstr("(null)");
-		return (6);
-	}
-	l = 0;
-	ft_putstr(str);
-	l = ft_strlen(str);
-	return (l);
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }

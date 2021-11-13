@@ -6,7 +6,7 @@
 #    By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/26 11:08:16 by mbutter           #+#    #+#              #
-#    Updated: 2021/11/10 16:24:07 by mbutter          ###   ########.fr        #
+#    Updated: 2021/11/13 15:25:56 by mbutter          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,9 @@ NAME		=	libftprintf.a
 
 SRCS		=	ft_printf.c \
 				parser/ft_parse_input.c \
-				processor/ft_processor.c \
+				parser/ft_flags.c \
+				parser/ft_parse_flags.c \
+				parser/ft_parser.c \
 				libft/ft_putchar.c \
 				libft/ft_putstr.c \
 				libft/ft_strlen.c \
@@ -22,13 +24,16 @@ SRCS		=	ft_printf.c \
 				libft/ft_itoa.c \
 				libft/ft_itoa_uint.c \
 				libft/ft_tohex.c \
+				libft/ft_isdigit.c \
+				processor/ft_processor.c \
 				processor/proc_char.c \
 				processor/proc_string.c \
 				processor/proc_int.c \
 				processor/proc_hex.c \
 				processor/proc_uint.c \
 				processor/proc_percent.c \
-				processor/proc_pointer.c			
+				processor/proc_pointer.c \
+				processor/proc_width.c
 
 OBJS		=	$(SRCS:.c=.o)
 

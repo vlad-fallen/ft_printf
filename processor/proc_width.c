@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   proc_string.c                                      :+:      :+:    :+:   */
+/*   proc_width.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/25 15:28:21 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/13 15:22:02 by mbutter          ###   ########.fr       */
+/*   Created: 2021/11/13 14:59:21 by mbutter           #+#    #+#             */
+/*   Updated: 2021/11/13 15:03:33 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int proc_string(char *str)
+int proc_width(int width, int minus, int zero)
 {
 	int l;
 
-	if (str == NULL)
-	{
-		ft_putstr("(null)");
-		return (6);
-	}
 	l = 0;
-	ft_putstr(str);
-	l = ft_strlen(str);
+	while (width - minus > 0)
+	{
+		if (zero == 1)
+			ft_putchar('0');
+		else
+			ft_putchar(' ');
+		width--;
+		l++;
+	}
 	return (l);
 }

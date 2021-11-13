@@ -6,13 +6,13 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 13:34:54 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/11 15:54:56 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/13 15:21:56 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int proc_pointer(unsigned long ptr, t_flags *flags)
+int proc_pointer(unsigned long ptr)
 {
 	char *str;
 	int l;

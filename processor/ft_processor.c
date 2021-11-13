@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 17:39:36 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/11 15:58:29 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/13 15:23:38 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@ int ft_processor(t_flags *flags, va_list ap)
 	if (flags->type == 1)
 		length = proc_char((char)va_arg(ap, int), flags);
 	else if (flags->type == 2)
-		length = proc_string(va_arg(ap, char *), flags);
+		length = proc_string(va_arg(ap, char *));
 	else if (flags->type == 3)
-		length = proc_pointer(va_arg(ap, unsigned long long), flags);
+		length = proc_pointer(va_arg(ap, unsigned long long));
 	else if (flags->type == 4 || flags->type == 5)
-		length = proc_int(va_arg(ap, int), flags);
+		length = proc_int(va_arg(ap, int));
 	else if (flags->type == 6)
-		length = proc_uint(va_arg(ap, unsigned int), flags);
+		length = proc_uint(va_arg(ap, unsigned int));
 	else if (flags->type == 7)
-		length = proc_hex(va_arg(ap, unsigned int), 0, flags);
+		length = proc_hex(va_arg(ap, unsigned int), 0);
 	else if (flags->type == 8)
-		length = proc_hex(va_arg(ap, unsigned int), 1, flags);
+		length = proc_hex(va_arg(ap, unsigned int), 1);
 	else if (flags->type == 9)
-		length = proc_percent(flags);
+		length = proc_percent();
 	return (length);
 }
