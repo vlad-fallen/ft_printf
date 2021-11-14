@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 17:16:22 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/13 14:16:30 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/14 16:06:11 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int ft_parser(const char *format, size_t i, t_flags *flags, va_list ap)
 	{
 		if (!ft_find_type(format[i]) && !ft_find_flag(format[i]) && !ft_isdigit(format[i]))
 			break;
+		if (format[i] == ' ')
+			flags->space = 1;
 		if (format[i] == '0' && !(flags->width) && !(flags->minus))
 			flags->zero = 1;
 		if (format[i] == '.')

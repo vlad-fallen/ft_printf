@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 15:28:31 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/11 16:02:10 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/14 15:52:58 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,11 @@ static void init_flags(t_flags *flags)
 	flags->width = 0;
 	flags->minus = 0;
 	flags->zero = 0;
-	flags->precision = 0;
+	flags->precision = -1;
 	flags->sharp = 0;
-}
-
-static int ft_whitespace(const char *format, int i)
-{
-	while (format[i] == ' ')
-		i++;
-	ft_putchar(' ');
-	return (i);
+	flags->plus = 0;
+	flags->star = 0;
+	flags->space = 0;
 }
 
 int ft_parse_input(const char *format, va_list ap)
@@ -44,11 +39,6 @@ int ft_parse_input(const char *format, va_list ap)
 		if (format[i] == '%')
 		{
 			i++;
-			if (format[i] == ' ')
-			{
-				i = ft_whitespace(format, i);
-				length++;
-			}
 			i = ft_parser(format, i, &flags, ap);
 			if (flags.type != 0)
 				length += ft_processor(&flags, ap);

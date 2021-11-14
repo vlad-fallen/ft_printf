@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 13:42:21 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/13 15:22:13 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/14 16:20:43 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_flags
 	int star;
 	int	sharp;
 	int plus;
+	int space;
 }	t_flags;
 
 int		ft_printf(const char *format, ...);
@@ -56,12 +57,12 @@ void ft_parse_flags(const char *format, t_flags *flags);
 
 int		ft_processor(t_flags *flags, va_list ap);
 int		proc_char(char c, t_flags *flags);
-int		proc_string(char *str);
+int		proc_string(char *str, t_flags *flags);
 int		proc_int(int num);
 int		proc_uint(unsigned int num);
 int		proc_hex(unsigned int num, int cap);
 int		proc_percent(void);
-int		proc_pointer(unsigned long ptr);
+int		proc_pointer(unsigned long long ptr, t_flags *flags);
 int		proc_width(int width, int minus, int zero);
 
 #endif
