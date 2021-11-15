@@ -1,43 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tohex.c                                         :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/09 13:51:54 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/15 19:57:55 by mbutter          ###   ########.fr       */
+/*   Created: 2021/11/15 19:56:40 by mbutter           #+#    #+#             */
+/*   Updated: 2021/11/15 19:56:52 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char *ft_tohex(unsigned long long num)
+char	*ft_strdup(const char *src)
 {
-	char *str;
-	unsigned long long t;
-	size_t i;
+	int		i;
+	char	*dest;
 
-	t = num;
 	i = 0;
-	if (num == 0)
-		return (ft_strdup("0"));
-	while (t != 0)
+	dest = (char *)malloc(ft_strlen(src) + 1);
+	if (dest == NULL)
+		return (NULL);
+	while (src[i] != '\0')
 	{
+		dest[i] = src[i];
 		i++;
-		t /=  16;
 	}
-	str = (char *)malloc(sizeof(char) * (i + 1));
-	str[i] = '\0';
-	i--;
-	while (num != 0)
-	{
-		if (num % 16 < 10)
-			str[i] = num % 16 + 48;
-		else
-			str[i] = num % 16 % 10 + 65;
-		num /= 16;
-		i--;
-	}
-	return (str);
+	dest[i] = '\0';
+	return (dest);
 }

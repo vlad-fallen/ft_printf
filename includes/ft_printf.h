@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 13:42:21 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/14 16:20:43 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/15 19:57:13 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ char	*ft_itoa(int n);
 char	*ft_itoa_uint(unsigned int n);
 char	*ft_tohex(unsigned long long num);
 int		ft_isdigit(int c);
+char	*ft_strdup(const char *src);
 
 /*--------PARSER--------*/
 
@@ -58,9 +59,9 @@ void ft_parse_flags(const char *format, t_flags *flags);
 int		ft_processor(t_flags *flags, va_list ap);
 int		proc_char(char c, t_flags *flags);
 int		proc_string(char *str, t_flags *flags);
-int		proc_int(int num);
-int		proc_uint(unsigned int num);
-int		proc_hex(unsigned int num, int cap);
+int		proc_int(int num, t_flags *flags);
+int		proc_uint(unsigned int num, t_flags *flags);
+int		proc_hex(unsigned int num, int cap, t_flags *flags);
 int		proc_percent(void);
 int		proc_pointer(unsigned long long ptr, t_flags *flags);
 int		proc_width(int width, int minus, int zero);

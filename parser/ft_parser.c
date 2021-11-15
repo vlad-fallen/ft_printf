@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 17:16:22 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/14 16:06:11 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/15 18:09:21 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ static int ft_find_type(char c)
 
 static int ft_find_flag(char c)
 {
-	if (c == '.' || c == '-' || c == '+' || c == '0' || c == '#' || c == '*')
+	if (c == '.' || c == '-' || c == '+' || c == '0' || c == '#' || c == '*'
+	|| c == ' ')
 		return (1);
 	return (0);
 }
@@ -34,7 +35,7 @@ int ft_parser(const char *format, size_t i, t_flags *flags, va_list ap)
 	{
 		if (!ft_find_type(format[i]) && !ft_find_flag(format[i]) && !ft_isdigit(format[i]))
 			break;
-		if (format[i] == ' ')
+		if (format[i] == ' ' && !flags->plus)
 			flags->space = 1;
 		if (format[i] == '0' && !(flags->width) && !(flags->minus))
 			flags->zero = 1;
@@ -45,7 +46,10 @@ int ft_parser(const char *format, size_t i, t_flags *flags, va_list ap)
 		if (format[i] == '*')
 			*flags = ft_flag_width(ap, *flags);
 		if (format[i] == '+')
+		{
 			flags->plus = 1;
+			flags->space = 0;
+		}
 		if (format[i] == '#')
 			flags->sharp = 1;
 		if (format[i] >= '0' && format[i] <= '9')
