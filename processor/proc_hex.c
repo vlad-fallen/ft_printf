@@ -6,19 +6,25 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 18:18:24 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/15 20:12:45 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/16 17:46:33 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int proc_output_hex(char *str, t_flags flags)
+static int proc_output_hex(char *str, t_flags flags, unsigned int num, int cap)
 {
 	int l;
 
 	l = 0;
-	if (flags.sharp == 1)
-		
+	if (flags.sharp == 1 && flags.zero == 0 && num != 0)
+	{
+		if (cap == 1)
+			ft_putstr("0X");
+		else
+			ft_putstr("0x");
+		l += 2;
+	}
 	if (flags.precision >=0)
 		l += proc_width(flags.precision, ft_strlen(str), 1);
 	l += ft_strlen(str);
@@ -26,13 +32,15 @@ static int proc_output_hex(char *str, t_flags flags)
 	return (l);
 }
 
-static int proc_put_hex(char *str, t_flags flags)
+static int proc_put_hex(char *str, t_flags flags, unsigned int num, int cap)
 {
 	int l;
 
 	l = 0;
 	if (flags.minus == 1)
-		l += proc_output_hex(str, flags);
+		l += proc_output_hex(str, flags, num, cap);
+	if (flags.sharp == 1 && flags.zero == 0)
+		flags.width -= 2;
 	if (flags.precision >= 0 && flags.precision < ft_strlen(str))
 		flags.precision = ft_strlen(str);
 	if (flags.precision >= 0)
@@ -40,7 +48,7 @@ static int proc_put_hex(char *str, t_flags flags)
 	else
 		l += proc_width(flags.width, ft_strlen(str), flags.zero);
 	if (flags.minus == 0)
-		l += proc_output_hex(str, flags);
+		l += proc_output_hex(str, flags, num, cap);
 	return (l);
 }
 
@@ -49,10 +57,20 @@ int proc_hex(unsigned int num, int cap, t_flags *flags)
 	char *str;
 	int l;
 
+	l = 0;
 	str = ft_tohex((unsigned long long)num);
 	if (cap == 0)
 		str = ft_strtolower(str);
-	l = proc_put_hex(str, *flags);
+	if (flags->zero == 1 && flags->precision == -1 && flags->sharp == 1 && num != 0)
+	{
+		if (cap == 1)
+			ft_putstr("0X");
+		else
+			ft_putstr("0x");
+		flags->width -= 2;
+		l += 2;
+	}
+	l += proc_put_hex(str, *flags, num, cap);
 	free(str);
 	return (l);
 }

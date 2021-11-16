@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:52:46 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/15 19:16:10 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/16 17:33:53 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,22 @@ static int proc_output_int(char *str, t_flags flags, int num)
 	int l;
 
 	l = 0;
-	if (num < 0 && flags.precision >= 0)
+	if (num < 0 && flags.zero == 0)
+	{
 		ft_putchar('-');
-	else if (flags.plus == 1 && flags.precision >= 0)
+		l++;
+	}
+	else if (flags.plus == 1 && flags.zero == 0)
+	{
 		ft_putchar('+');
+		l++;
+	}
 	else if (flags.space == 1 && (flags.minus == 1 || 
 	flags.width < flags.precision || flags.width < ft_strlen(str)))
+	{
 		ft_putchar(' ');
+		l++;
+	}
 	if (flags.precision >=0)
 		l += proc_width(flags.precision, ft_strlen(str), 1);
 	l += ft_strlen(str);
@@ -55,18 +64,18 @@ static int proc_put_int(char *str, t_flags flags, int num)
 int proc_int(int num, t_flags *flags)
 {
 	int l;
-	int buf_num;
+	long int buf_num;
 	char *str;
 
 	l = 0;
 	buf_num = num;
-	if (num < 0)
-		num *= (-1);
-	str = ft_itoa(num);
+	if (buf_num < 0)
+		buf_num *= (-1);
+	str = ft_itoa_uint(buf_num);
 	if (flags->zero == 1 && flags->precision == -1 && (flags->plus == 1
-	|| buf_num < 0 || flags->space == 1))
+	|| num < 0 || flags->space == 1))
 	{
-		if (buf_num < 0)
+		if (num < 0)
 			ft_putchar('-');
 		else if (flags->plus == 1)
 			ft_putchar('+');
@@ -76,7 +85,7 @@ int proc_int(int num, t_flags *flags)
 		flags->width--;
 		l++;
 	}
-	l += proc_put_int(str, *flags, buf_num);
+	l += proc_put_int(str, *flags, num);
 	free(str);
 	return (l);
 }

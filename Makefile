@@ -6,7 +6,7 @@
 #    By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/26 11:08:16 by mbutter           #+#    #+#              #
-#    Updated: 2021/11/13 15:25:56 by mbutter          ###   ########.fr        #
+#    Updated: 2021/11/16 14:27:49 by mbutter          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRCS		=	ft_printf.c \
 				libft/ft_itoa_uint.c \
 				libft/ft_tohex.c \
 				libft/ft_isdigit.c \
+				libft/ft_strdup.c \
 				processor/ft_processor.c \
 				processor/proc_char.c \
 				processor/proc_string.c \
@@ -68,8 +69,6 @@ fclean:		clean
 
 re:			fclean $(NAME)
 
-bonus:		$(OBJS) $(BONUS_OBJS)
-			ar rc $(NAME) $(OBJS) $(BONUS_OBJS)
-			ranlib $(NAME)
+bonus:		all
 
 .PHONY:		all clean fclean re bonus

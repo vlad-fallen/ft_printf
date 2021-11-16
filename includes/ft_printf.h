@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 13:42:21 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/15 19:57:13 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/16 17:36:50 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		ft_printf(const char *format, ...);
 
 void	ft_putchar(const char c);
 void	ft_putstr(char *s);
-int		ft_strlen(char *str);
+int		ft_strlen(const char *str);
 char	*ft_strtolower(char *str);
 char	*ft_itoa(int n);
 char	*ft_itoa_uint(unsigned int n);
@@ -62,7 +62,7 @@ int		proc_string(char *str, t_flags *flags);
 int		proc_int(int num, t_flags *flags);
 int		proc_uint(unsigned int num, t_flags *flags);
 int		proc_hex(unsigned int num, int cap, t_flags *flags);
-int		proc_percent(void);
+int		proc_percent(t_flags *flags);
 int		proc_pointer(unsigned long long ptr, t_flags *flags);
 int		proc_width(int width, int minus, int zero);
 

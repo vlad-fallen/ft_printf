@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 17:39:36 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/15 19:49:04 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/16 14:22:33 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ int ft_processor(t_flags *flags, va_list ap)
 	else if (flags->type == 8)
 		length = proc_hex(va_arg(ap, unsigned int), 1, flags);
 	else if (flags->type == 9)
-		length = proc_percent();
+		length = proc_percent(flags);
 	return (length);
 }
