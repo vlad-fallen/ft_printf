@@ -6,11 +6,11 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 14:26:31 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/13 14:16:24 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/17 13:40:52 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
 t_flags	ft_flag_minus(t_flags flags)
 {

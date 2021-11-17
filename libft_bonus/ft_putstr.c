@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/25 15:51:00 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/11 11:48:00 by mbutter          ###   ########.fr       */
+/*   Created: 2021/10/25 15:31:49 by mbutter           #+#    #+#             */
+/*   Updated: 2021/11/17 13:35:38 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
-int	ft_strlen(char *str)
+void	ft_putstr(char *s)
 {
-	int	i;
+	size_t	i;
 
+	if (s == NULL)
+		return ;
 	i = 0;
-	while (str[i])
+	while (s[i])
 		i++;
-	return (i);
+	write(1, s, i);
 }

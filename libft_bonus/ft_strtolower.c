@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strtolower.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/25 15:51:00 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/11 11:48:00 by mbutter          ###   ########.fr       */
+/*   Created: 2021/11/09 14:06:29 by mbutter           #+#    #+#             */
+/*   Updated: 2021/11/17 13:35:38 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
-int	ft_strlen(char *str)
+char *ft_strtolower(char *str)
 {
-	int	i;
+	size_t i;
 
 	i = 0;
 	while (str[i])
+	{
+		if (str[i] >= 'A' && str[i] <= 'Z')
+		str[i] = str[i] - 'A' + 'a';
 		i++;
-	return (i);
+	}
+	return (str);
 }

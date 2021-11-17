@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   proc_percent.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/25 15:51:00 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/11 11:48:00 by mbutter          ###   ########.fr       */
+/*   Created: 2021/10/25 18:13:05 by mbutter           #+#    #+#             */
+/*   Updated: 2021/11/17 13:35:38 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
-int	ft_strlen(char *str)
+int proc_percent(t_flags *flags)
 {
-	int	i;
+	int l;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	l = 0;
+	if (flags->minus == 1)
+		ft_putchar('%');
+	l = proc_width(flags->width, 1, flags->zero);
+	if (flags->minus == 0)
+		ft_putchar('%');
+	return (l + 1);
 }

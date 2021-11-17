@@ -6,11 +6,11 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 17:16:22 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/15 18:09:21 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/17 13:35:38 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
 static int ft_find_type(char c)
 {

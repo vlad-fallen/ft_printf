@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/25 15:51:00 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/11 11:48:00 by mbutter          ###   ########.fr       */
+/*   Created: 2021/11/15 19:56:40 by mbutter           #+#    #+#             */
+/*   Updated: 2021/11/17 13:35:38 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
-int	ft_strlen(char *str)
+char	*ft_strdup(const char *src)
 {
-	int	i;
+	int		i;
+	char	*dest;
 
 	i = 0;
-	while (str[i])
+	dest = (char *)malloc(ft_strlen(src) + 1);
+	if (dest == NULL)
+		return (NULL);
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
 		i++;
-	return (i);
+	}
+	dest[i] = '\0';
+	return (dest);
 }

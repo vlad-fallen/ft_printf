@@ -6,26 +6,24 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 13:51:54 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/15 19:57:55 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/11 11:49:11 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char *ft_tohex(unsigned long long num)
+char	*ft_tohex(unsigned long long num)
 {
-	char *str;
-	unsigned long long t;
-	size_t i;
+	char				*str;
+	unsigned long long	t;
+	size_t				i;
 
 	t = num;
 	i = 0;
-	if (num == 0)
-		return (ft_strdup("0"));
 	while (t != 0)
 	{
 		i++;
-		t /=  16;
+		t /= 16;
 	}
 	str = (char *)malloc(sizeof(char) * (i + 1));
 	str[i] = '\0';

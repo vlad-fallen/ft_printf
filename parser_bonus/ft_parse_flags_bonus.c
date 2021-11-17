@@ -6,11 +6,11 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 13:22:10 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/13 13:22:48 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/17 13:35:38 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
 void ft_parse_flags(const char *format, t_flags *flags)
 {

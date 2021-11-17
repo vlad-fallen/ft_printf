@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   proc_width.c                                       :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/13 14:59:21 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/13 15:03:33 by mbutter          ###   ########.fr       */
+/*   Created: 2021/11/13 15:17:49 by mbutter           #+#    #+#             */
+/*   Updated: 2021/11/17 13:35:38 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
-int proc_width(int width, int minus, int zero)
+int	ft_isdigit(int c)
 {
-	int l;
-
-	l = 0;
-	while (width - minus > 0)
-	{
-		if (zero == 1)
-			ft_putchar('0');
-		else
-			ft_putchar(' ');
-		width--;
-		l++;
-	}
-	return (l);
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }

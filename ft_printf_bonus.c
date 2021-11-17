@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_printf_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/13 15:17:49 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/13 15:18:01 by mbutter          ###   ########.fr       */
+/*   Created: 2021/10/22 15:12:28 by mbutter           #+#    #+#             */
+/*   Updated: 2021/11/17 17:21:11 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
-int	ft_isdigit(int c)
+int ft_printf(const char *format, ...)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	int len;
+	va_list ap;
+	
+	va_start(ap, format);
+	len = ft_parse_input(format, ap);
+	va_end(ap);
+	return (len);
 }

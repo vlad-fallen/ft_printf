@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_itoa_uint.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 16:05:46 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/08 13:28:47 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/17 13:35:38 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
 static int	ft_get_len_itoa(long n)
 {
@@ -48,7 +48,7 @@ static void	ft_fill_str(char *str, long n, int len)
 	}
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa_uint(unsigned int n)
 {
 	char	*str;
 	int		len;
