@@ -6,13 +6,13 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 13:51:54 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/18 11:53:14 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/18 13:49:48 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
 
-static char	*ft_fill_tohex(char *str, int num, size_t i)
+static char	*ft_fill_tohex(char *str, unsigned long long num, size_t i)
 {
 	while (num != 0)
 	{
