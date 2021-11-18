@@ -6,12 +6,12 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 13:42:21 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/17 13:28:16 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/18 12:32:33 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef FT_PRINTF_BONUS_H
+# define FT_PRINTF_BONUS_H
 
 # include <stdarg.h>
 # include <unistd.h>
@@ -19,15 +19,15 @@
 
 typedef struct s_flags
 {
-	int type;
-	int width;
-	int minus;
-	int zero;
-	int precision;
-	int star;
+	int	type;
+	int	width;
+	int	minus;
+	int	zero;
+	int	precision;
+	int	star;
 	int	sharp;
-	int plus;
-	int space;
+	int	plus;
+	int	space;
 }	t_flags;
 
 int		ft_printf(const char *format, ...);
@@ -49,10 +49,12 @@ char	*ft_strdup(const char *src);
 int		ft_parse_input(const char *format, va_list ap);
 int		ft_parser(const char *format, size_t i, t_flags *flags, va_list ap);
 t_flags	ft_flag_minus(t_flags flags);
-t_flags ft_flag_width(va_list ap, t_flags flags);
-t_flags ft_flag_digit(char c, t_flags flags);
-int ft_flag_precision(const char *format, size_t i, t_flags *flags, va_list ap);
-void ft_parse_flags(const char *format, t_flags *flags);
+t_flags	ft_flag_plus(t_flags flags);
+t_flags	ft_flag_width(va_list ap, t_flags flags);
+t_flags	ft_flag_digit(char c, t_flags flags);
+int		ft_flag_precision(const char *format, size_t i, t_flags *flags, \
+	va_list ap);
+void	ft_parse_flags(const char *format, t_flags *flags);
 
 /*--------PROCESSOR--------*/
 

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_flags.c                                   :+:      :+:    :+:   */
+/*   ft_parse_flags_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 13:22:10 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/17 13:35:38 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/18 11:56:03 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
 
-void ft_parse_flags(const char *format, t_flags *flags)
+void	ft_parse_flags(const char *format, t_flags *flags)
 {
 	if (*format == 'c')
 		flags->type = 1;

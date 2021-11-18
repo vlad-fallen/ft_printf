@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   proc_hex.c                                         :+:      :+:    :+:   */
+/*   proc_hex_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 18:18:24 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/17 13:35:38 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/18 12:19:10 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
 
-static int proc_output_hex(char *str, t_flags flags, unsigned int num, int cap)
+static int	proc_output_hex(char *str, t_flags flags, unsigned int num, int cap)
 {
-	int l;
+	int	l;
 
 	l = 0;
 	if (flags.sharp == 1 && flags.zero == 0 && num != 0)
@@ -25,16 +25,16 @@ static int proc_output_hex(char *str, t_flags flags, unsigned int num, int cap)
 			ft_putstr("0x");
 		l += 2;
 	}
-	if (flags.precision >=0)
+	if (flags.precision >= 0)
 		l += proc_width(flags.precision, ft_strlen(str), 1);
 	l += ft_strlen(str);
 	ft_putstr(str);
 	return (l);
 }
 
-static int proc_put_hex(char *str, t_flags flags, unsigned int num, int cap)
+static int	proc_put_hex(char *str, t_flags flags, unsigned int num, int cap)
 {
-	int l;
+	int	l;
 
 	l = 0;
 	if (flags.minus == 1)
@@ -52,16 +52,17 @@ static int proc_put_hex(char *str, t_flags flags, unsigned int num, int cap)
 	return (l);
 }
 
-int proc_hex(unsigned int num, int cap, t_flags *flags)
+int	proc_hex(unsigned int num, int cap, t_flags *flags)
 {
-	char *str;
-	int l;
+	char	*str;
+	int		l;
 
 	l = 0;
 	str = ft_tohex((unsigned long long)num);
 	if (cap == 0)
 		str = ft_strtolower(str);
-	if (flags->zero == 1 && flags->precision == -1 && flags->sharp == 1 && num != 0)
+	if (flags->zero == 1 && flags->precision == -1 && flags->sharp == 1 && \
+		num != 0)
 	{
 		if (cap == 1)
 			ft_putstr("0X");

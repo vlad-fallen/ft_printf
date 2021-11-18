@@ -6,7 +6,7 @@
 #    By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/26 11:08:16 by mbutter           #+#    #+#              #
-#    Updated: 2021/11/17 17:29:33 by mbutter          ###   ########.fr        #
+#    Updated: 2021/11/18 13:03:20 by mbutter          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,9 +62,7 @@ CC			=	gcc
 
 RM			=	rm -f
 
-CFLAGS		=	-Wall -Wextra -Werror -O2 -I ./includes
-
-CFLAGS_B	=	-Wall -Wextra -Werror -O2 -I ./includes_bonus
+CFLAGS		=	-Wall -Wextra -Werror -O2 -I ./
 
 D_FILES		=	$(patsubst %.c,%.d,$(SRCS)) 
 
@@ -88,7 +86,7 @@ fclean:		clean
 re:			fclean $(NAME)
 
 bonus:		fclean
-			$(MAKE) OBJS="$(BONUS_OBJS)" CFLAGS="$(CFLAGS_B)" D_FILES="$(D_FILES_B)" all
+			$(MAKE) OBJS="$(BONUS_OBJS)" D_FILES="$(D_FILES_B)" all
 
 .PHONY:		all clean fclean re bonus
 

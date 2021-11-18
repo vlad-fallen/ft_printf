@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_input.c                                   :+:      :+:    :+:   */
+/*   ft_parse_input_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 15:28:31 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/17 13:35:38 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/18 11:56:25 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
 
-static void init_flags(t_flags *flags)
+static void	init_flags(t_flags *flags)
 {
 	flags->type = 0;
 	flags->width = 0;
@@ -25,11 +25,11 @@ static void init_flags(t_flags *flags)
 	flags->space = 0;
 }
 
-int ft_parse_input(const char *format, va_list ap)
+int	ft_parse_input(const char *format, va_list ap)
 {
-	t_flags flags;
-	int length;
-	size_t i;
+	t_flags	flags;
+	int		length;
+	size_t	i;
 
 	length = 0;
 	i = 0;

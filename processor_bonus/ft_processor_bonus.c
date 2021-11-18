@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_processor.c                                     :+:      :+:    :+:   */
+/*   ft_processor_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 17:39:36 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/17 13:35:38 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/18 12:14:45 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
 
-int ft_processor(t_flags *flags, va_list ap)
+int	ft_processor(t_flags *flags, va_list ap)
 {
-	int length;
+	int	length;
 
 	length = 0;
 	if (flags->type == 1)

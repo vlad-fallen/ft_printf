@@ -6,15 +6,15 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 15:51:00 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/17 13:35:38 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/18 11:42:31 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
 
-int ft_strlen(const char *str)
+int	ft_strlen(const char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])

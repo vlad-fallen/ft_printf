@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flags.c                                         :+:      :+:    :+:   */
+/*   ft_flags_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 14:26:31 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/17 13:40:52 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/18 12:01:29 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,14 @@ t_flags	ft_flag_minus(t_flags flags)
 	return (flags);
 }
 
-t_flags ft_flag_width(va_list ap, t_flags flags)
+t_flags	ft_flag_plus(t_flags flags)
+{
+	flags.plus = 1;
+	flags.space = 0;
+	return (flags);
+}
+
+t_flags	ft_flag_width(va_list ap, t_flags flags)
 {
 	flags.star = 1;
 	flags.width = va_arg(ap, int);
@@ -32,7 +39,7 @@ t_flags ft_flag_width(va_list ap, t_flags flags)
 	return (flags);
 }
 
-t_flags ft_flag_digit(char c, t_flags flags)
+t_flags	ft_flag_digit(char c, t_flags flags)
 {
 	if (flags.star == 1)
 		flags.width = 0;
@@ -40,7 +47,7 @@ t_flags ft_flag_digit(char c, t_flags flags)
 	return (flags);
 }
 
-int ft_flag_precision(const char *format, size_t i, t_flags *flags, va_list ap)
+int	ft_flag_precision(const char *format, size_t i, t_flags *flags, va_list ap)
 {
 	i++;
 	if (format[i] == '*')
@@ -57,6 +64,5 @@ int ft_flag_precision(const char *format, size_t i, t_flags *flags, va_list ap)
 			i++;
 		}
 	}
-	
 	return (i);
 }
