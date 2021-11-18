@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 18:18:24 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/18 12:19:10 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/18 17:46:04 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,11 @@ static int	proc_output_hex(char *str, t_flags flags, unsigned int num, int cap)
 	}
 	if (flags.precision >= 0)
 		l += proc_width(flags.precision, ft_strlen(str), 1);
-	l += ft_strlen(str);
-	ft_putstr(str);
+	if (!(num == 0) || !(flags.precision == 0))
+	{
+		l += ft_strlen(str);
+		ft_putstr(str);
+	}
 	return (l);
 }
 
@@ -41,7 +44,7 @@ static int	proc_put_hex(char *str, t_flags flags, unsigned int num, int cap)
 		l += proc_output_hex(str, flags, num, cap);
 	if (flags.sharp == 1 && flags.zero == 0)
 		flags.width -= 2;
-	if (flags.precision >= 0 && flags.precision < ft_strlen(str))
+	if (flags.precision > 0 && flags.precision < ft_strlen(str))
 		flags.precision = ft_strlen(str);
 	if (flags.precision >= 0)
 		l += proc_width(flags.width, flags.precision, 0);

@@ -6,31 +6,34 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 18:06:08 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/18 12:28:55 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/18 17:49:48 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
 
-static int	proc_output_int(char *str, t_flags flags)
+static int	proc_output_int(char *str, t_flags flags, unsigned int num)
 {
 	int	l;
 
 	l = 0;
 	if (flags.precision >= 0)
 		l += proc_width(flags.precision, ft_strlen(str), 1);
-	l += ft_strlen(str);
-	ft_putstr(str);
+	if (!(num == 0) || !(flags.precision == 0))
+	{
+		l += ft_strlen(str);
+		ft_putstr(str);
+	}
 	return (l);
 }
 
-static int	proc_put_int(char *str, t_flags flags)
+static int	proc_put_int(char *str, t_flags flags, unsigned int num)
 {
 	int	l;
 
 	l = 0;
 	if (flags.minus == 1)
-		l += proc_output_int(str, flags);
+		l += proc_output_int(str, flags, num);
 	if (flags.precision >= 0 && flags.precision < ft_strlen(str))
 		flags.precision = ft_strlen(str);
 	if (flags.precision >= 0)
@@ -38,7 +41,7 @@ static int	proc_put_int(char *str, t_flags flags)
 	else
 		l += proc_width(flags.width, ft_strlen(str), flags.zero);
 	if (flags.minus == 0)
-		l += proc_output_int(str, flags);
+		l += proc_output_int(str, flags, num);
 	return (l);
 }
 
@@ -49,7 +52,7 @@ int	proc_uint(unsigned int num, t_flags *flags)
 
 	l = 0;
 	str = ft_itoa_uint(num);
-	l = proc_put_int(str, *flags);
+	l = proc_put_int(str, *flags, num);
 	free(str);
 	return (l);
 }
