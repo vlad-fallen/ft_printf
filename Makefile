@@ -6,7 +6,7 @@
 #    By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/26 11:08:16 by mbutter           #+#    #+#              #
-#    Updated: 2021/11/19 13:04:38 by mbutter          ###   ########.fr        #
+#    Updated: 2021/11/19 13:34:32 by mbutter          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,7 +72,6 @@ all:		$(NAME)
 
 $(NAME):	$(OBJS)
 			ar rcs $(NAME) $(OBJS)
-#			ranlib $(NAME)
 
 .c.o:
 			$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -MMD
