@@ -6,15 +6,15 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:52:46 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/19 13:11:14 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/19 13:15:08 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
 
-static int proc_flags_output_int(int num, t_flags flags, char *str)
+static int	proc_flags_output_int(int num, t_flags flags, char *str)
 {
-	int l;
+	int	l;
 
 	l = 0;
 	if (num < 0 && flags.zero == 0)
