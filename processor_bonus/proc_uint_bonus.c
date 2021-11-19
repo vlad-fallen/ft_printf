@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 18:06:08 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/18 17:49:48 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/19 13:22:40 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	proc_put_int(char *str, t_flags flags, unsigned int num)
 	l = 0;
 	if (flags.minus == 1)
 		l += proc_output_int(str, flags, num);
-	if (flags.precision >= 0 && flags.precision < ft_strlen(str))
+	if (flags.precision > 0 && flags.precision < ft_strlen(str))
 		flags.precision = ft_strlen(str);
 	if (flags.precision >= 0)
 		l += proc_width(flags.width, flags.precision, 0);
