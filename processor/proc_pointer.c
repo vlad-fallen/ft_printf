@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 13:34:54 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/11 11:50:41 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/19 18:03:36 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ int	proc_pointer(unsigned long ptr)
 
 	str = NULL;
 	if (ptr == 0)
-		*str = '0';
+	{
+		ft_putstr("0x0");
+		return (3);
+	}
 	else
 	{
 		str = ft_tohex((unsigned long long)ptr);
