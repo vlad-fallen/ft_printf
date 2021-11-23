@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:52:46 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/21 14:17:41 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/23 13:33:02 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,11 @@ static int	proc_put_int(char *str, t_flags flags, int num)
 		flags.width--;
 	if (flags.precision > 0 && flags.precision < ft_strlen(str))
 		flags.precision = ft_strlen(str);
-	if (flags.precision >= 0)
+	if (flags.precision > 0 && (flags.width > ft_strlen(str) || num == 0))
+		l += proc_width(flags.width, flags.precision, 0);
+	else if (flags.precision == 0 && num != 0)
+		l += proc_width(flags.width, ft_strlen(str), 0);
+	else if (flags.precision == 0 && num == 0)
 		l += proc_width(flags.width, flags.precision, 0);
 	else
 		l += proc_width(flags.width, ft_strlen(str), flags.zero);
@@ -84,7 +88,7 @@ int	proc_int(int num, t_flags *flags)
 	if (buf_num < 0)
 		buf_num *= (-1);
 	str = ft_itoa_uint(buf_num);
-	if (flags->zero == 1 && flags->precision == -1 && (flags->plus == 1 \
+	if (flags->zero == 1 && flags->precision < 0 && (flags->plus == 1 \
 		|| num < 0 || flags->space == 1))
 	{
 		if (num < 0)

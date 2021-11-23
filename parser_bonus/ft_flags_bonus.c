@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 14:26:31 by mbutter           #+#    #+#             */
-/*   Updated: 2021/11/18 14:56:17 by mbutter          ###   ########.fr       */
+/*   Updated: 2021/11/23 13:33:37 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int	ft_flag_precision(const char *format, size_t i, t_flags *flags, va_list ap)
 			i++;
 		}
 	}
-	flags->zero = 0;
+	if (flags->precision >= 0)
+		flags->zero = 0;
 	return (i);
 }
